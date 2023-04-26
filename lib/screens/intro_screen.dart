@@ -3,7 +3,7 @@ import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
 import 'package:intro_slider/scrollbar_behavior_enum.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
-import 'package:royal_cargo/screens/permission.dart';
+import 'package:royal_cargo/screens/terms_conditions.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 

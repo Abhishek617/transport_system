@@ -4,7 +4,9 @@ import 'package:royal_cargo/utils/appStrings.dart';
 
 class AppButtons {
   Widget kElevatedButton(
-      {required String title, required BuildContext context,required Function() onPressed}) {
+      {required String title,
+      required BuildContext context,
+      required Function() onPressed}) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.kBlue,
@@ -15,7 +17,7 @@ class AppButtons {
         onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 40,
+          height: 45,
           // decoration: const BoxDecoration(
           //     color: AppColors.kLightGreen,
           //     borderRadius: BorderRadius.all(Radius.circular(30))),
@@ -32,12 +34,11 @@ class AppButtons {
         ));
   }
 
-  Widget kElevatedButtonwithIcon({
-    required String title,
-    required BuildContext context,
-    required IconData icon,
-    required Function() onPressed
-  }) {
+  Widget kElevatedButtonwithIcon(
+      {required String title,
+      required BuildContext context,
+      required IconData icon,
+      required Function() onPressed}) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.kBlue,
@@ -48,7 +49,7 @@ class AppButtons {
         onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 50,
+          height: 45,
           // decoration: const BoxDecoration(
           //     color: AppColors.kLightGreen,
           //     borderRadius: BorderRadius.all(Radius.circular(30))),
