@@ -95,7 +95,12 @@ class _IntroScreenState extends State<IntroScreen> {
             AppButtons().kElevatedButton(
                 title: AppStrings.kREGISTER,
                 context: context,
-                onPressed: () {   print('register');}
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Permission()),);
+
+                  print('register');}
             )
           ],
         ),

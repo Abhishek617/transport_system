@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
+import 'package:royal_cargo/screens/permission2.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
 class Permission extends StatefulWidget {
@@ -62,7 +63,12 @@ class _PermissionState extends State<Permission> {
             Text(AppStrings.kAgree,style: TextStyle(fontSize:15, color: Colors.grey[600]),),
             SizedBox(height: 20,),
 
-            AppButtons().kElevatedButton(title: AppStrings.kAGREE, context: context),
+            AppButtons().kElevatedButton(title: AppStrings.kAGREE, context: context
+            , onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Location_Icon()),);
+                }),
             SizedBox(height: 10,),
             Container(
                 height: 50,
