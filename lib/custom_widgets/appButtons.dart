@@ -4,18 +4,18 @@ import 'package:royal_cargo/utils/appStrings.dart';
 
 class AppButtons {
   Widget kElevatedButton(
-      {required String title, required BuildContext context}) {
+      {required String title, required BuildContext context,required Function() onPressed}) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.kBlue,
           elevation: 2,
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30))),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 50,
+          height: 40,
           // decoration: const BoxDecoration(
           //     color: AppColors.kLightGreen,
           //     borderRadius: BorderRadius.all(Radius.circular(30))),
@@ -26,7 +26,7 @@ class AppButtons {
                   color: AppColors.kWhite,
                   fontFamily: 'Roboto-Regular',
                   fontWeight: FontWeight.w600,
-                  fontSize: 20),
+                  fontSize: 18),
             ),
           ),
         ));
@@ -36,15 +36,16 @@ class AppButtons {
     required String title,
     required BuildContext context,
     required IconData icon,
+    required Function() onPressed
   }) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.kBlue,
           elevation: 2,
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30))),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 50,
