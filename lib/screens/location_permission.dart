@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
 import 'package:royal_cargo/main.dart';
-import 'package:royal_cargo/screens/registration_screen.dart';
+import 'package:royal_cargo/screens/driver_customer_screen.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
@@ -78,7 +78,7 @@ class _LocationIconState extends State<LocationIcon> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Registration()));
+                            builder: (context) => const DriverCustomer()));
                   }),
             )
           ],
