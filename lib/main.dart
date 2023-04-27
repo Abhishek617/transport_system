@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/screens/intro_screen.dart';
 
+bool isLocationPermission = true;
+
 void main() {
   runApp(const MyApp());
 }

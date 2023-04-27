@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
+import 'package:royal_cargo/screens/otp_verification.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 import 'package:flutter/gestures.dart';
 
@@ -22,22 +24,25 @@ class _RegistrationState extends State<Registration> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: const Icon(
-          Icons.arrow_back_rounded,
-          color: Colors.black,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.black,
+          ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Container(
               height: 1,
               width: 70,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: Border.all(color: Colors.black)
-                  //    borderRadius:Radius.circula
-                  ),
+                  border: Border.all(color: Colors.black)),
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +57,11 @@ class _RegistrationState extends State<Registration> {
                     ),
                     Text(
                       "Help  ",
-                      style: TextStyle(color: AppColors.kBlue),
+                      style: TextStyle(
+                          color: AppColors.kBlue,
+                          fontFamily: 'Roboto-Regular',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15),
                     ),
                   ],
                 ),
@@ -67,15 +76,23 @@ class _RegistrationState extends State<Registration> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              AppStrings.kEnterPhnNo,
-              style: TextStyle(color: AppColors.kBlue, fontSize: 36),
+              AppStrings.kEnterPhn,
+              style: TextStyle(
+                  color: AppColors.kBlue,
+                  fontFamily: 'Roboto-Regular',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 30),
             ),
             const SizedBox(
               height: 10,
             ),
             const Text(
               AppStrings.kPhnNoDesc,
-              style: TextStyle(color: AppColors.kBlack, fontSize: 21),
+              style: TextStyle(
+                  color: AppColors.kBlack,
+                  fontFamily: 'Roboto-Regular',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
             ),
             const SizedBox(
               height: 30,
@@ -83,6 +100,7 @@ class _RegistrationState extends State<Registration> {
             AppButtons().kTextFormField(
                 controller: mobileNumber,
                 keyboardType: TextInputType.number,
+                hintText: AppStrings.kEnterPhnNo,
                 textInputAction: TextInputAction.newline),
             const Spacer(),
             Row(
@@ -102,13 +120,14 @@ class _RegistrationState extends State<Registration> {
                     child: Text(
                   AppStrings.kAllowWhatsappUpdates,
                   style: TextStyle(
-                    fontSize: 17,
-                    color: AppColors.kBlue,
+                    fontSize: 15,
+                    color: AppColors.kLightBlue,
+                    fontFamily: 'Roboto-Regular',
+                    fontWeight: FontWeight.w500,
                   ),
                 )),
               ],
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 40),
               child: privacyPolicyLinkAndTermsOfService(),
@@ -117,7 +136,16 @@ class _RegistrationState extends State<Registration> {
               height: 10,
             ),
             AppButtons().kElevatedButton(
-                title: AppStrings.kCONTINUE, context: context, onPressed: () {})
+                title: AppStrings.kCONTINUE,
+                context: context,
+                onPressed: (){
+                    if (mobileNumber.text.isNotEmpty) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => OtpVerification(mobileNo: mobileNumber.text,)));
+                    } else {
+                      AppButtons().kToast(AppStrings.kEnterMobile);
+                    }
+                })
           ],
         ),
       ),
@@ -130,13 +158,19 @@ class _RegistrationState extends State<Registration> {
       padding: const EdgeInsets.all(10),
       child: Center(
           child: Text.rich(TextSpan(
-              text: 'By continuing, you agree to our ',
-              style: const TextStyle(fontSize: 17, color: AppColors.kBlack),
+              text: 'By continuing, you agreeing to the ',
+              style: const TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'Roboto-Regular',
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.kBlack),
               children: <TextSpan>[
             TextSpan(
-                text: 'Terms & Condaitions',
+                text: 'Terms & Conditions',
                 style: const TextStyle(
-                  fontSize: 17,
+                  fontSize: 15,
+                  fontFamily: 'Roboto-Regular',
+                  fontWeight: FontWeight.w500,
                   color: AppColors.kBlue,
                   decoration: TextDecoration.underline,
                 ),
@@ -151,8 +185,10 @@ class _RegistrationState extends State<Registration> {
                   TextSpan(
                       text: 'Privacy Policy',
                       style: const TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           color: AppColors.kBlue,
+                          fontFamily: 'Roboto-Regular',
+                          fontWeight: FontWeight.w500,
                           decoration: TextDecoration.underline),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {

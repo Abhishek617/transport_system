@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
@@ -81,41 +82,59 @@ class AppButtons {
   Widget kTextFormField(
       {required TextEditingController controller,
       obscureText = false,
+      String? hintText,
       required TextInputType keyboardType,
+      textAlign = TextAlign.start,
       required TextInputAction textInputAction}) {
-    return Material(
-      elevation: 3,
-      borderRadius: const BorderRadius.all(Radius.circular(10)),
-      shadowColor: AppColors.kBlack.withOpacity(0.7),
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        keyboardType: keyboardType,
-        textInputAction: textInputAction,
-        cursorColor: AppColors.kGreen,
-        style: const TextStyle(
-            color: AppColors.kLightBlue,
-            fontFamily: 'Roboto-Regular',
-            fontWeight: FontWeight.w500,
-            fontSize: 20),
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.kLightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.kLightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.kLightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          hintText: AppStrings.kEnterPhnNo,
-          helperStyle: TextStyle(
+    return SizedBox(
+      height: 50,
+      child: Material(
+        elevation: 3,
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        shadowColor: AppColors.kBlack.withOpacity(0.7),
+        child: TextFormField(
+          controller: controller,
+          obscureText: obscureText,
+          keyboardType: keyboardType,
+          textInputAction: textInputAction,
+          cursorColor: AppColors.kGreen,
+          textAlign: textAlign,
+          style: const TextStyle(
               color: AppColors.kLightBlue,
               fontFamily: 'Roboto-Regular',
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.normal,
               fontSize: 20),
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.kLightBlue),
+                borderRadius: BorderRadius.all(Radius.circular(5))),
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.kLightBlue),
+                borderRadius: BorderRadius.all(Radius.circular(5))),
+            enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.kLightBlue),
+                borderRadius: BorderRadius.all(Radius.circular(5))),
+            hintText: hintText,
+            helperStyle: const TextStyle(
+                color: AppColors.kLightBlue,
+                fontFamily: 'Roboto-Regular',
+                fontWeight: FontWeight.w500,
+                fontSize: 20),
+          ),
         ),
       ),
+    );
+  }
+
+  Future<bool?> kToast(String msg) {
+    return Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
     );
   }
 }
