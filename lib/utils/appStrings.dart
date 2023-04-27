@@ -38,11 +38,11 @@ class AppStrings {
 
   //Register through Mobile Otp
   static const kEnterPhnNo = 'Enter your\nphone number';
-  static const kPhnNoDesc = 'Share your phone number and start posting loads';
+  static const kPhnNoDesc = 'Share your phone number and\nstart posting loads';
   static const kAllowWhatsappUpdates =
       'Allow Royal Cargo Runner to send updates on offers through Whatsapp';
   static const kAgreeTermsandPolicy =
-      'By continuing, you are agreeing to the Terms & Conditions and Privacy Policy  ';
+      'By continuing, you are agreeing to the Terms & Conditions and Privacy Policy';
   static const kCONTINUE = 'CONTINUE';
   static const kReceivingOTP = 'Receiving OTP';
   static const kRecieveOTP = 'You will receive the OTP on 1234567890';

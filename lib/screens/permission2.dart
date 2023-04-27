@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
+import 'package:royal_cargo/screens/registration_screen.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
 class Location_Icon extends StatefulWidget {
@@ -44,7 +45,11 @@ class _Location_IconState extends State<Location_Icon> {
               child: AppButtons().kElevatedButton(
                   title: "GIVE PERMISSION",
                   context: context,
-                  onPressed: (){}),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Registration()),);
+                  }),
             )
           ],
         ),
