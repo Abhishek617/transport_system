@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
+import 'home/home_screen.dart';
 
 class OtpVerification extends StatefulWidget {
   final String mobileNo;
@@ -117,6 +118,10 @@ class _OtpVerificationState extends State<OtpVerification> {
                   onPressed: () {
                     if(_otpController.text.isNotEmpty){
                       print('if condition');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),);
+
                     }
                     else{
                       print('else condition');
@@ -129,4 +134,5 @@ class _OtpVerificationState extends State<OtpVerification> {
       ),
     );
   }
+
 }
