@@ -37,13 +37,15 @@ class AppStrings {
   static const kGivePermission = 'GIVE PERMISSION NOW';
 
   //Register through Mobile Otp
-  static const kEnterPhnNo = 'Enter your\nphone number';
+  static const kEnterPhn = 'Enter your\nphone number';
+  static const kEnterPhnNo = 'Enter your phone number';
   static const kPhnNoDesc = 'Share your phone number and\nstart posting loads';
   static const kAllowWhatsappUpdates =
       'Allow Royal Cargo Runner to send updates on offers through Whatsapp';
-  static const kAgreeTermsandPolicy =
-      'By continuing, you are agreeing to the Terms & Conditions and Privacy Policy';
   static const kCONTINUE = 'CONTINUE';
   static const kReceivingOTP = 'Receiving OTP';
-  static const kRecieveOTP = 'You will receive the OTP on 1234567890';
+  static const kRecieveOTP = 'You will receive the OTP on';
+
+  static const kEnterMobile = 'Please Enter Mobile Number.';
+  static const kEnterOTP = 'Please Enter OTP';
 }

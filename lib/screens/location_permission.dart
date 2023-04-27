@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
-import 'package:royal_cargo/screens/otp_verification.dart';
+import 'package:royal_cargo/main.dart';
+import 'package:royal_cargo/screens/registration_screen.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
@@ -12,6 +14,17 @@ class LocationIcon extends StatefulWidget {
 }
 
 class _LocationIconState extends State<LocationIcon> {
+  locationPermission() async {
+    if (await Permission.location.status.isGranted) {
+      print('if location');
+      isLocationPermission = await Permission.location.status.isGranted;
+    } else {
+      print('else location');
+      await openAppSettings();
+    }
+    print('isLocationPermission:$isLocationPermission');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +52,7 @@ class _LocationIconState extends State<LocationIcon> {
             ),
             const Text(AppStrings.kLocationPermissionRequired,
                 style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 20,
                     color: AppColors.kLightBlue,
                     fontWeight: FontWeight.w600)),
             const SizedBox(
@@ -49,9 +62,10 @@ class _LocationIconState extends State<LocationIcon> {
               padding: EdgeInsets.only(left: 15, right: 15, top: 10),
               child: Text(AppStrings.kLocationDesc,
                   style: TextStyle(
-                    fontSize: 17,
-                    color: AppColors.kGrey,
-                  )),
+                      fontSize: 13,
+                      color: AppColors.kGrey,
+                      fontFamily: 'Roboto-Regular',
+                      fontWeight: FontWeight.w400)),
             ),
             const Spacer(),
             Padding(
@@ -60,10 +74,11 @@ class _LocationIconState extends State<LocationIcon> {
                   title: AppStrings.kGivePermission,
                   context: context,
                   onPressed: () {
+                    locationPermission();
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const OtpVerification()));
+                            builder: (context) => const Registration()));
                   }),
             )
           ],
