@@ -4,6 +4,8 @@ import 'package:royal_cargo/screens/location_permission.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
+import '../utils/device_utils.dart';
+
 class Permission extends StatefulWidget {
   const Permission({Key? key}) : super(key: key);
 
@@ -173,19 +175,22 @@ class _PermissionState extends State<Permission> {
               const SizedBox(
                 height: 10,
               ),
-              const SizedBox(
-                  height: 50,
-                  width: 330,
-                  child: Center(
-                    child: Text(
-                      AppStrings.kDisagree,
-                      style: TextStyle(
-                          color: AppColors.kGrey,
-                          fontSize: 18,
-                          fontWeight: FontWeight.normal,
-                          fontFamily: 'Roboto-Regular'),
-                    ),
-                  ))
+              InkWell(
+                onTap: () {},
+                child: SizedBox(
+                    height: DeviceUtils.getScaledHeight(context, 0.06),
+                    width: DeviceUtils.getScaledHeight(context, 0.50),
+                    child: Center(
+                      child: Text(
+                        AppStrings.kDisagree,
+                        style: TextStyle(
+                            color: AppColors.kGrey,
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'Roboto-Regular'),
+                      ),
+                    )),
+              )
             ],
           ),
         ),

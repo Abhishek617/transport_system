@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/screens/intro_screen.dart';
+import 'package:royal_cargo/screens/splash_screen.dart';
 
 bool isLocationPermission = true;
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: IntroScreen(),
+      home: SplashScreen(),
     );
   }
 }

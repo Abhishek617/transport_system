@@ -58,18 +58,22 @@ class _DriverCustomerState extends State<DriverCustomer> {
       ),
     );
   }
-  // Widget customer_driverButton({String? text, String? image}){
-  //   return Column(
-  //     children: [
-  //       Container(
-  //         height: 100,
-  //         width: 100,
-  //         //color: Colors.grey,
-  //         child: Image.asset(image!),
-  //       ),
-  //       Text(text!)
-  //     ],
-  //   );
-  // }
+  Widget customer_driverButton({String? text}){
+    return Column(
+      children: [
+        Container(
+            height: 100,
+            width: 150,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                border: Border.all(color: Colors.blue)
+              //    borderRadius:Radius.circula
+            ),
+            child: Center(child: Text(text!,style: TextStyle(fontSize: 25),))
+        ),
+      ],
+    );
+  }
 
 }

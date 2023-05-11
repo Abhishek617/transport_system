@@ -3,6 +3,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 import 'package:royal_cargo/utils/appStrings.dart';
 
+import '../utils/device_utils.dart';
+
 class AppButtons {
   Widget kElevatedButton(
       {required String title,
@@ -18,7 +20,7 @@ class AppButtons {
         onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 45,
+          height: DeviceUtils.getScaledHeight(context, 0.07),
           // decoration: const BoxDecoration(
           //     color: AppColors.kLightGreen,
           //     borderRadius: BorderRadius.all(Radius.circular(30))),
@@ -50,31 +52,28 @@ class AppButtons {
         onPressed: onPressed,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 45,
+          height: 60,
           // decoration: const BoxDecoration(
           //     color: AppColors.kLightGreen,
           //     borderRadius: BorderRadius.all(Radius.circular(30))),
-          child: Center(
-            child: Row(
-              children: [
-                Icon(
-                  icon,
-                  color: Colors.green,
-                  size: 30.0,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  title,
-                  style: const TextStyle(
-                      color: AppColors.kWhite,
-                      fontFamily: 'Roboto-Regular',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
-                ),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: Colors.white,
+                size: 30.0,
+              ),
+
+              Text(
+                 title,
+                style: const TextStyle(
+                    color: AppColors.kWhite,
+                    fontFamily: 'Roboto-Regular',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20),
+              ),
+            ],
           ),
         ));
   }
