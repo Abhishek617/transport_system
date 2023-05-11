@@ -60,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: (){
-                           // navDrawer();
-                           // _scaffoldState.currentState!.openDrawer();
+                           navDrawer();
+                           _scaffoldState.currentState!.openDrawer();
                           },
                             child: const Icon(Icons.menu_outlined,color: Colors.white,size:30,)),
                         helpcustome(),
@@ -482,7 +482,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                   color: AppColors.kBlue,
                   fontFamily: 'Roboto-Regular',
-                  fontWeight: FontWeight.w500,
+
                   fontSize: 15),
             ),
           ],
