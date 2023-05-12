@@ -62,7 +62,7 @@ class _BookNowState extends State<BookNow> {
           _customeText(loadingPoint, 'Loading point'),
           _customeText(unload,"Unloading Point"),
           _customeText(material, "Material"),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical:15,horizontal: 15),
             child: AppButtons().kElevatedButton(title: 'SUBMIT', context: context, onPressed: (){}),

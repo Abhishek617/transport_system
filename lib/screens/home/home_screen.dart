@@ -81,24 +81,27 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: DeviceUtils.getScaledWidth(context, 0.17),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
-                            color: Colors.grey[300]
+                            color: AppColors.kGrey
                           ),
                         ),
                         const SizedBox(width: 10,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("Abhishek Singh", style: TextStyle(fontSize: 19, color: AppColors.kWhite),),
+                            const Text("Abhishek Singh", style: TextStyle(fontSize: 19, color: AppColors.kWhite,fontWeight: FontWeight.w700,
+                              fontFamily: 'Roboto-Regular',),),
                             const SizedBox(height: 5,),
                             Row(
                               children: [
                                 const Icon(Icons.star,color: Colors.white,),
-                                const Text(" Not Enough Rating",style: TextStyle(fontSize: 14, color: AppColors.kWhite),),
+                                const Text(" Not Enough Rating",style: TextStyle(fontSize: 14, color: AppColors.kWhite,fontWeight: FontWeight.w700,
+                                  fontFamily: 'Roboto-Regular',),),
                                 const SizedBox(width: 10,),
                                 const SizedBox(height: 5,),
-                                Text("VERIFIED",style: TextStyle(fontSize: 15, color: Colors.blue[100]),),
+                                const Text("VERIFIED",style: TextStyle(fontSize: 15, color: AppColors.kLightBlue,fontWeight: FontWeight.w700,
+                                  fontFamily: 'Roboto-Regular',),),
                                 const SizedBox(width: 5,),
-                                Icon(Icons.verified_user, color: Colors.blue[100],size: 16,),
+                                const Icon(Icons.verified_user, color: AppColors.kLightBlue,size: 16,),
                                 const SizedBox(width: 25,),
                                 InkWell(
                                     onTap: (){
@@ -137,49 +140,45 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                    Container(
-
-                               child: Column(
-                                 mainAxisAlignment: MainAxisAlignment.start,
-                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
-                                   Row(
-                                     children: const [
-                                       Icon(Icons.ice_skating),
-                                       Text(" 0", style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),)
-                                     ],
-                                   ),
-
-                                   const Text("Loads")
-                                 ],
-                               ),
-                              ),
-                                  Container(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Row(
                                           children: const [
-                                            Icon(Icons.remove_red_eye),
+                                            Icon(Icons.ice_skating),
                                             Text(" 0", style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),)
                                           ],
                                         ),
-                                        const Text("Load")
+
+                                        const Text("Loads")
                                       ],
                                     ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        children: const [
+                                          Icon(Icons.remove_red_eye),
+                                          Text(" 0", style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),)
+                                        ],
+                                      ),
+                                      const Text("Load")
+                                    ],
                                   ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: const [
-                                            Icon(Icons.call),
-                                            Text(" 0", style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),)
-                                          ],
-                                        ),
-                                        const Text("Call Receive")
-                                      ],
-                                    ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        children: const [
+                                          Icon(Icons.call),
+                                          Text(" 0", style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),)
+                                        ],
+                                      ),
+                                      const Text("Call Receive")
+                                    ],
                                   ),
                                 ],
                               ),
@@ -202,10 +201,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           //SizedBox(height: 19,),
                           const Spacer(),
                           Container(
-                            height: DeviceUtils.getScaledHeight(context, 0.03),
+                            height: DeviceUtils.getScaledHeight(context, 0.04),
                             width: double.infinity,
                             color: Colors.blue[200],
-                            child: const Center(child: Text("53 calls were received by tansporter in Ahmedabad yesterday", style: TextStyle(color: AppColors.kGrey),)),
+                            child: const Center(child: Text("53 calls were received by transporter in Ahmedabad yesterday", style: TextStyle(color: AppColors.kGrey,fontSize: 11,fontWeight: FontWeight.normal,fontFamily: 'Roboto-Regular'),)),
                           ),
                         ],
                       ),
@@ -221,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(10.0),
               child: Card(
                 elevation: 5,
-                child: Container(
+                child: SizedBox(
                   height: DeviceUtils.getScaledHeight(context, 0.20),
                   width: DeviceUtils.getScaledHeight(context, 0.60),
 
@@ -258,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: DeviceUtils.getScaledWidth(context, 0.20),
 
                                 decoration: BoxDecoration(
-                                    color: Colors.grey,
+                                    color: AppColors.kGrey,
                                   borderRadius: BorderRadius.circular(100)
                                 ),),
                             ),
@@ -273,12 +272,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             const SizedBox(height: 5,),
-            const Text('  Post new load or repost old',style: TextStyle(color: AppColors.kBlack, fontSize: 21,fontWeight: FontWeight.bold),),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Text('Post new load or repost old',style: TextStyle(color: AppColors.kBlack, fontSize: 21,fontWeight: FontWeight.bold),),
+            ),
           const SizedBox(height: 10,),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: AppButtons().kElevatedButtonwithIcon(
-                title: "  Post New Load",
+                title: "Post New Load",
                 context: context,
                 icon: (Icons.telegram_sharp),
                 onPressed: (){}),
@@ -290,18 +292,19 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: const [
                   Icon(Icons.star_border),
-                  Text("  Star  Transports on Royal Cargo Runner", style: TextStyle(color: AppColors.kBlack, fontSize: 16, fontWeight: FontWeight.bold),),
-
-
+                  SizedBox(width: 10,),
+                  Text("Star Transports on Royal Cargo Runner", style: TextStyle(color: AppColors.kBlack, fontSize: 16, fontWeight: FontWeight.bold),),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Container(
                   height: DeviceUtils.getScaledHeight(context, 0.40),
-
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.grey[200],
@@ -333,6 +336,9 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (int index) {
           switch (index) {
             case 0:
+              break;
+            case 1:
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const BookNow()));
             // only scroll to top when current index is selected.
             //   if (_selectedIndex == index) {
             //     _homeController.animateTo(
@@ -342,8 +348,9 @@ class _HomeScreenState extends State<HomeScreen> {
             //     );
             //   }
               break;
-            case 1:
-             // showModal(context);
+            case 2:
+              // Navigator.push(context, MaterialPageRoute(builder: (context)=> const BookNow()));
+// showModal(context);
               break;
           }
           setState(

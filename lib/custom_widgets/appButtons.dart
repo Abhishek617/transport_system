@@ -64,7 +64,7 @@ class AppButtons {
                 color: Colors.white,
                 size: 30.0,
               ),
-
+              const SizedBox(width: 10,),
               Text(
                  title,
                 style: const TextStyle(
