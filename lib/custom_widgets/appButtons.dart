@@ -87,39 +87,35 @@ class AppButtons {
       required TextInputAction textInputAction}) {
     return SizedBox(
       height: 50,
-      child: Material(
-        elevation: 3,
-        borderRadius: const BorderRadius.all(Radius.circular(5)),
-        shadowColor: AppColors.kBlack.withOpacity(0.7),
-        child: TextFormField(
-          controller: controller,
-          obscureText: obscureText,
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
-          cursorColor: AppColors.kGreen,
-          textAlign: textAlign,
-          style: const TextStyle(
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        textInputAction: textInputAction,
+        cursorColor: AppColors.kGreen,
+        textAlign: textAlign,
+        style: const TextStyle(
+            color: AppColors.kLightBlue,
+            fontFamily: 'Roboto-Regular',
+            fontWeight: FontWeight.normal,
+            fontSize: 20),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+          border: const OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kLightBlue),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kLightBlue),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kLightBlue),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
+          hintText: hintText,
+          helperStyle: const TextStyle(
               color: AppColors.kLightBlue,
               fontFamily: 'Roboto-Regular',
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.w500,
               fontSize: 20),
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.kLightBlue),
-                borderRadius: BorderRadius.all(Radius.circular(5))),
-            focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.kLightBlue),
-                borderRadius: BorderRadius.all(Radius.circular(5))),
-            enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.kLightBlue),
-                borderRadius: BorderRadius.all(Radius.circular(5))),
-            hintText: hintText,
-            helperStyle: const TextStyle(
-                color: AppColors.kLightBlue,
-                fontFamily: 'Roboto-Regular',
-                fontWeight: FontWeight.w500,
-                fontSize: 20),
-          ),
         ),
       ),
     );

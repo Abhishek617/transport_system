@@ -48,4 +48,14 @@ class AppStrings {
 
   static const kEnterMobile = 'Please Enter Mobile Number.';
   static const kEnterOTP = 'Please Enter OTP';
+
+  // My Loads Page
+  static const kMyLoads = 'My Loads';
+  static const kLoadBalance = 'LOAD BALANCE';
+  static const kActive = 'ACTIVE';
+  static const kPast = 'PAST';
+  static const knoActive = 'You have no active loads at the moment';
+  static const knoPast = 'You have no past loads at the moment';
+  static const kPostLoads = 'Recharge to post loads';
+  static const kBuyPack = 'BUY PACK';
 }

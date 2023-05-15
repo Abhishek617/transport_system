@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
+import 'package:royal_cargo/screens/my_loads.dart';
 import 'package:royal_cargo/utils/appColors.dart';
 
 import '../../utils/device_utils.dart';
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldState,
        drawer: navDrawer(),
       // appBar: AppBar(x
       //   backgroundColor: Colors.transparent,
@@ -76,13 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     left: 35,
                     child: Row(
                       children: [
-                        Container(
-                          height: DeviceUtils.getScaledHeight(context, 0.08),
-                          width: DeviceUtils.getScaledWidth(context, 0.17),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: AppColors.kGrey
-                          ),
+                        const CircleAvatar(
+                          radius: 30,
+                          backgroundColor: AppColors.kGrey,
+                          // backgroundImage: AssetImage('assets/images/cat3.png'),
                         ),
                         const SizedBox(width: 10,),
                         Column(
@@ -250,17 +249,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 30, ),
-                              child: Container(
-                                height: DeviceUtils.getScaledHeight(context, 0.10),
-                                width: DeviceUtils.getScaledWidth(context, 0.20),
-
-                                decoration: BoxDecoration(
-                                    color: AppColors.kGrey,
-                                  borderRadius: BorderRadius.circular(100)
-                                ),),
+                            const CircleAvatar(
+                              radius: 30,
+                              backgroundColor: AppColors.kGrey,
+                              // backgroundImage: AssetImage('assets/images/cat3.png'),
                             ),
+                            // Padding(
+                            //   padding: const EdgeInsets.only(right: 30, ),
+                            //   child: Container(
+                            //     height: DeviceUtils.getScaledHeight(context, 0.10),
+                            //     width: DeviceUtils.getScaledWidth(context, 0.20),
+                            //
+                            //     decoration: BoxDecoration(
+                            //         color: AppColors.kGrey,
+                            //       borderRadius: BorderRadius.circular(100)
+                            //     ),),
+                            // ),
                           ],
                         ),
 
@@ -338,7 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
             case 0:
               break;
             case 1:
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const BookNow()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyLoads()));
             // only scroll to top when current index is selected.
             //   if (_selectedIndex == index) {
             //     _homeController.animateTo(
