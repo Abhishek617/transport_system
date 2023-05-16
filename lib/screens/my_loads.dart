@@ -10,7 +10,7 @@ class MyLoads extends StatefulWidget {
 }
 
 class _MyLoadsState extends State<MyLoads> {
-  bool loads = false;
+  bool loads = true;
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +62,73 @@ class _MyLoadsState extends State<MyLoads> {
             ),
           ),
           body: loads
-              ? const TabBarView(children: [
-                  Center(
-                      child: Text(
-                    "One",
-                    style: TextStyle(fontSize: 50),
-                  )),
+              ? TabBarView(children: [
+            ListView.builder(
+                // physics: NeverScrollableScrollPhysics(),
+                itemCount:18,
+                itemBuilder: (context,index){
+                  return  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 250,
+                      decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: const BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [BoxShadow(
+                            color: AppColors.kGrey.withOpacity(0.5),
+                            blurRadius: 4.0,
+                            spreadRadius: 0.0,
+                            offset: const Offset(0.0, 3.0),
+                          ),]
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: const [
+                                Text('ID 8102760',style: TextStyle(
+                                  color: AppColors.kGrey,
+                                  fontSize: 10,
+                                  fontFamily: 'Roboto-Regular',
+                                  fontWeight: FontWeight.w600
+                                ),),
+                                Spacer(),
+                                Text('23 Feb, 02.51 PM',style: TextStyle(
+                                    color: AppColors.kGrey,
+                                    fontSize: 10,
+                                    fontFamily: 'Roboto-Regular',
+                                    fontWeight: FontWeight.w600
+                                ),)
+                              ],
+                            ),
+                            const SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text('Anand\nGujarat',style: TextStyle(
+                                    color: AppColors.kBlack,
+                                    fontSize: 16,
+                                    fontFamily: 'Roboto-Regular',
+                                    fontWeight: FontWeight.w600
+                                ),),
+                                Icon(Icons.arrow_forward),
+                                Text('Rajkot\nGujarat',style: TextStyle(
+                                    color: AppColors.kBlack,
+                                    fontSize: 16,
+                                    fontFamily: 'Roboto-Regular',
+                                    fontWeight: FontWeight.w600
+                                ),)
+                              ],
+                            ),
+                            const SizedBox(height: 10,),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }),
                   Center(
                       child: Text(
                     "Two",
