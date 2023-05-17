@@ -82,6 +82,7 @@ class AppButtons {
       {required TextEditingController controller,
       obscureText = false,
       String? hintText,
+      String? labelText,
       required TextInputType keyboardType,
       textAlign = TextAlign.start,
       required TextInputAction textInputAction}) {
@@ -95,21 +96,27 @@ class AppButtons {
         cursorColor: AppColors.kGreen,
         textAlign: textAlign,
         style: const TextStyle(
-            color: AppColors.kLightBlue,
+            color: AppColors.kBlack,
             fontFamily: 'Roboto-Regular',
             fontWeight: FontWeight.normal,
             fontSize: 20),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-          border: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.kLightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(5))),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kBlack.withOpacity(0.4)),
+              borderRadius: const BorderRadius.all(Radius.circular(5))),
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.kLightBlue),
               borderRadius: BorderRadius.all(Radius.circular(5))),
-          enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.kLightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(5))),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kBlack.withOpacity(0.4)),
+              borderRadius: const BorderRadius.all(Radius.circular(5))),
+          labelText: labelText,
+          labelStyle: TextStyle(
+              color: AppColors.kBlack.withOpacity(0.5),
+              fontFamily: 'Roboto-Regular',
+              fontWeight: FontWeight.w500,
+              fontSize: 20),
           hintText: hintText,
           helperStyle: const TextStyle(
               color: AppColors.kLightBlue,

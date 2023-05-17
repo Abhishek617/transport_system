@@ -28,7 +28,7 @@ class _BalanceState extends State<Balance> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
                Container(
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: 250,
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -40,22 +40,22 @@ class _BalanceState extends State<Balance> {
                     tileMode: TileMode.repeated,
                   ),
                 ),
-                 child: Column(
-                   children: [
-                     const Spacer(),
-                     Column(
-                       children: [
-                         Row(
-                           children: [
-                             const Text("   0", style: TextStyle(fontSize:35, fontWeight: FontWeight.bold, color: AppColors.kWhite),),const SizedBox(width: 10,),
-                             const Text("Loads", style: TextStyle(fontSize:15, fontWeight: FontWeight.bold, color: AppColors.kWhite),),
-                             //AppButtons().kElevatedButtonwithIcon(title:"RECHARGE", context: context, icon: , onPressed: onPressed)
+                 child: Padding(
+                   padding: const EdgeInsets.only(left: 30, right: 30),
+                   child: Column(
+                     children: [
+                       const Spacer(),
+                       Column(
+                         children: [
+                           Row(
+                             children: const [
+                               Text("0", style: TextStyle(fontSize:35, fontWeight: FontWeight.bold, color: AppColors.kWhite),),SizedBox(width: 10,),
+                               Text("Loads", style: TextStyle(fontSize:15, fontWeight: FontWeight.bold, color: AppColors.kWhite),),
+                               //AppButtons().kElevatedButtonwithIcon(title:"RECHARGE", context: context, icon: , onPressed: onPressed)
 
-                           ],
-                         ),
-                         Padding(
-                           padding: const EdgeInsets.only(left: 30, right: 30),
-                           child: Container(
+                             ],
+                           ),
+                           Container(
                              height: 44 ,
                              width: double.infinity,
                              decoration: BoxDecoration(
@@ -64,11 +64,11 @@ class _BalanceState extends State<Balance> {
                              ),
                              child: const Center(child: Text("RECHARGE", style: TextStyle(fontSize: 16),)),
                            ),
-                         ),
-                         const SizedBox(height: 35,)
-                       ],
-                     )
-                   ],
+                           const SizedBox(height: 35,)
+                         ],
+                       )
+                     ],
+                   ),
                  ),
               ),
             ],

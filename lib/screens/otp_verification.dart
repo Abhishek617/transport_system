@@ -104,11 +104,35 @@ class _OtpVerificationState extends State<OtpVerification> {
             const SizedBox(
               height: 40,
             ),
-            AppButtons().kTextFormField(
+            SizedBox(
+              height: 50,
+              child: TextFormField(
                 controller: _otpController,
-                textAlign: TextAlign.center,
+                obscureText: true,
+                obscuringCharacter: '*',
                 keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.done),
+                textInputAction: TextInputAction.done,
+                cursorColor: AppColors.kGreen,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: AppColors.kBlack,
+                    fontFamily: 'Roboto-Regular',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 20),
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                ),
+              ),
+            ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
