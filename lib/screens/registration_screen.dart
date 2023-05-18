@@ -97,11 +97,34 @@ class _RegistrationState extends State<Registration> {
             const SizedBox(
               height: 30,
             ),
-            AppButtons().kTextFormField(
+            SizedBox(
+              height: 50,
+              child: TextFormField(
                 controller: mobileNumber,
+                obscureText: false,
                 keyboardType: TextInputType.number,
-                hintText: AppStrings.kEnterPhnNo,
-                textInputAction: TextInputAction.newline),
+                textInputAction: TextInputAction.done,
+                cursorColor: AppColors.kGreen,
+                // textAlign: textAlign,
+                style: const TextStyle(
+                    color: AppColors.kBlack,
+                    fontFamily: 'Roboto-Regular',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 20),
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.kLightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                ),
+              ),
+            ),
             const Spacer(),
             Row(
               children: [

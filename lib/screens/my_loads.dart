@@ -63,77 +63,314 @@ class _MyLoadsState extends State<MyLoads> {
           ),
           body: loads
               ? TabBarView(children: [
-            ListView.builder(
-                // physics: NeverScrollableScrollPhysics(),
-                itemCount:18,
-                itemBuilder: (context,index){
-                  return  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 250,
-                      decoration: BoxDecoration(
-                          color: AppColors.kWhite,
-                          borderRadius: const BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [BoxShadow(
-                            color: AppColors.kGrey.withOpacity(0.5),
-                            blurRadius: 4.0,
-                            spreadRadius: 0.0,
-                            offset: const Offset(0.0, 3.0),
-                          ),]
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: const [
-                                Text('ID 8102760',style: TextStyle(
-                                  color: AppColors.kGrey,
-                                  fontSize: 10,
-                                  fontFamily: 'Roboto-Regular',
-                                  fontWeight: FontWeight.w600
-                                ),),
-                                Spacer(),
-                                Text('23 Feb, 02.51 PM',style: TextStyle(
-                                    color: AppColors.kGrey,
-                                    fontSize: 10,
-                                    fontFamily: 'Roboto-Regular',
-                                    fontWeight: FontWeight.w600
-                                ),)
-                              ],
+                  ListView.builder(
+                      // physics: NeverScrollableScrollPhysics(),
+                      itemCount: 18,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color: AppColors.kWhite,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(20)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.kGrey.withOpacity(0.5),
+                                    blurRadius: 4.0,
+                                    spreadRadius: 0.0,
+                                    offset: const Offset(0.0, 3.0),
+                                  ),
+                                ]),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: const [
+                                      Text(
+                                        'ID 8102760',
+                                        style: TextStyle(
+                                            color: AppColors.kGrey,
+                                            fontSize: 10,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        '23 Feb, 02.51 PM',
+                                        style: TextStyle(
+                                            color: AppColors.kGrey,
+                                            fontSize: 10,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        'Anand\nGujarat',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Icon(Icons.arrow_forward),
+                                      Text(
+                                        'Rajkot\nGujarat',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Divider(
+                                    thickness: 1,
+                                  ),
+                                  // const SizedBox(height: 5,),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        'Bricks',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        'Truck(s)',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        'Open\nBody',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                  // const SizedBox(height: 5,),
+                                  const Divider(
+                                    thickness: 1,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        '\u{20B9}10,000 Per Truck',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Row(
+                                        children: const [
+                                          Text(
+                                            '1 Match Found',
+                                            style: TextStyle(
+                                                color: AppColors.kBlue,
+                                                fontSize: 14,
+                                                fontFamily: 'Roboto-Regular',
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: AppColors.kBlue,
+                                            size: 12,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(height: 10,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text('Anand\nGujarat',style: TextStyle(
-                                    color: AppColors.kBlack,
-                                    fontSize: 16,
-                                    fontFamily: 'Roboto-Regular',
-                                    fontWeight: FontWeight.w600
-                                ),),
-                                Icon(Icons.arrow_forward),
-                                Text('Rajkot\nGujarat',style: TextStyle(
-                                    color: AppColors.kBlack,
-                                    fontSize: 16,
-                                    fontFamily: 'Roboto-Regular',
-                                    fontWeight: FontWeight.w600
-                                ),)
-                              ],
+                          ),
+                        );
+                      }),
+                  ListView.builder(
+                      // physics: NeverScrollableScrollPhysics(),
+                      itemCount: 18,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color: AppColors.kWhite,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(20)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.kGrey.withOpacity(0.5),
+                                    blurRadius: 4.0,
+                                    spreadRadius: 0.0,
+                                    offset: const Offset(0.0, 3.0),
+                                  ),
+                                ]),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: const [
+                                      Text(
+                                        'ID 8102760',
+                                        style: TextStyle(
+                                            color: AppColors.kGrey,
+                                            fontSize: 10,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        '23 Feb, 02.51 PM',
+                                        style: TextStyle(
+                                            color: AppColors.kGrey,
+                                            fontSize: 10,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        'Anand\nGujarat',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Icon(Icons.arrow_forward),
+                                      Text(
+                                        'Rajkot\nGujarat',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 16,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Divider(
+                                    thickness: 1,
+                                  ),
+                                  // const SizedBox(height: 5,),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        'Bricks',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        'Truck(s)',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        'Open\nBody',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      )
+                                    ],
+                                  ),
+                                  // const SizedBox(height: 5,),
+                                  const Divider(
+                                    thickness: 1,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        '\u{20B9}10,000 Per Truck',
+                                        style: TextStyle(
+                                            color: AppColors.kBlack,
+                                            fontSize: 14,
+                                            fontFamily: 'Roboto-Regular',
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Row(
+                                        children: const [
+                                          Text(
+                                            '1 Match Found',
+                                            style: TextStyle(
+                                                color: AppColors.kBlue,
+                                                fontSize: 14,
+                                                fontFamily: 'Roboto-Regular',
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: AppColors.kBlue,
+                                            size: 12,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(height: 10,),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-                  Center(
-                      child: Text(
-                    "Two",
-                    style: TextStyle(fontSize: 50),
-                  )),
+                          ),
+                        );
+                      }),
                   // Center( child: Text("Three",style: TextStyle(fontSize: 50),))
                 ])
               : TabBarView(children: [
