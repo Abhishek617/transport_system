@@ -32,8 +32,6 @@ class _BookNowState extends State<BookNow> {
   TextEditingController unload = TextEditingController();
   TextEditingController material = TextEditingController();
   Type _type = Type.Single;
-  String radioButtonItem = 'ONE';
-  int id = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,23 +63,20 @@ class _BookNowState extends State<BookNow> {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-              padding: EdgeInsets.all(14.0),
-              child: Text('Selected Radio Item = ' + '$radioButtonItem',
-                  style: TextStyle(fontSize: 21))
-          ),
           Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
                   children: [
-                    Radio(value: 0, groupValue: 'null',onChanged: (val) {
-                      setState(() {
-                        radioButtonItem = 'ONE';
-                        id = 1;
-                      });
-                    },),
+                    Radio<Type>(value: Type.Single, groupValue: _type,
+                      activeColor: AppColors.kLightGreen,
+                        onChanged: (Type? value) {
+                          setState(() {
+                            _type = value!;
+                          });
+                          print('Type: ${_type.name}');
+                        },),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +104,14 @@ class _BookNowState extends State<BookNow> {
                 Row(
                   // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Radio(value: 1, groupValue: 'null', onChanged: (index) {}),
+                    Radio<Type>(value: Type.Multiple, groupValue: _type,
+                      activeColor: AppColors.kLightGreen,
+                      onChanged: (Type? value) {
+                        setState(() {
+                          _type = value!;
+                        });
+                        print('Type: ${_type.name}');
+                      },),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
