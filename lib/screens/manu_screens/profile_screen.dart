@@ -28,70 +28,98 @@ class _ProfileState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Stack(
                   children: [
                     Positioned(
-
                       child: Container(
                         height: 100,
                         width: 100,
                         decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(100)
-                        ),
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(100)),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Abhishek Singh", style: TextStyle(fontSize: 16,),),
-                    SizedBox(height: 5,),
+                    Text(
+                      "Abhishek Singh",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text("Ahmedabad Gujarat"),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       height: 35,
                       width: 150,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         border: Border.all(color: Colors.green, width: 4),
-                        ),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.share_rounded, size: 18,),
-                        SizedBox(width: 5),
+                          Icon(
+                            Icons.share_rounded,
+                            size: 18,
+                          ),
+                          SizedBox(width: 5),
                           Text("SHARE PROFILE")
                         ],
                       ),
-
-                      ),
+                    ),
 //                    Text("YOUR RATING",style: TextStyle(color: AppColors.kGrey),)
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 20,),
-            Text("  YOUR RATING",style: TextStyle(color: AppColors.kGrey, fontSize: 16),),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "  YOUR RATING",
+              style: TextStyle(color: AppColors.kGrey, fontSize: 16),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Container(
                   height: 25,
-                  child:Center(child: Text(' New ', style: TextStyle(color: Colors.yellow[800], fontSize: 16),)),
+                  child: Center(
+                      child: Text(
+                    ' New ',
+                    style: TextStyle(color: Colors.yellow[800], fontSize: 16),
+                  )),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
-                      color: Colors.yellow ,
-                      width: 2.0 ,
+                      color: Colors.yellow,
+                      width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                ), SizedBox(width: 5,),Text("Not Enough Rating",style: TextStyle(fontSize: 16),),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  "Not Enough Rating",
+                  style: TextStyle(fontSize: 16),
+                ),
               ],
             ),
           ],

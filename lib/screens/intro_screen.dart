@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'package:intro_slider/slide_object.dart';
 import 'package:intro_slider/scrollbar_behavior_enum.dart';
 import 'package:royal_cargo/custom_widgets/appButtons.dart';
 import 'package:royal_cargo/screens/blank_page.dart';
@@ -17,13 +15,21 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-  List<String> title = [AppStrings.kFreight,AppStrings.kTransparent,AppStrings.kTrusted];
-  List<String> desc = [AppStrings.kFreightDesc,AppStrings.kTransparentDesc,AppStrings.kTrustedDesc];
+  List<String> title = [
+    AppStrings.kFreight,
+    AppStrings.kTransparent,
+    AppStrings.kTrusted
+  ];
+  List<String> desc = [
+    AppStrings.kFreightDesc,
+    AppStrings.kTransparentDesc,
+    AppStrings.kTrustedDesc
+  ];
 
   List<Widget> generateListCustomTabs() {
     return List.generate(
       3,
-          (index) => Container(
+      (index) => Container(
         color: Colors.white,
         width: double.infinity,
         height: double.infinity,
@@ -31,7 +37,7 @@ class _IntroScreenState extends State<IntroScreen> {
           children: <Widget>[
             // const SizedBox(height: 40),
             Image.asset(
-              "assets/images/intro${index+1}.png",
+              "assets/images/intro${index + 1}.png",
               width: MediaQuery.of(context).size.width,
               height: 400.0,
             ),
@@ -71,11 +77,11 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   void initState() {
     super.initState();
-    executeContectivity (InternetConnectionChecker());
+    executeContectivity(InternetConnectionChecker());
 
     // Create customized instance which can be registered via dependency injection
     final InternetConnectionChecker customInstance =
-    InternetConnectionChecker.createInstance(
+        InternetConnectionChecker.createInstance(
       checkTimeout: const Duration(seconds: 1),
       checkInterval: const Duration(seconds: 1),
     );
@@ -85,8 +91,8 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 
   Future<void> executeContectivity(
-      InternetConnectionChecker internetConnectionChecker,
-      ) async {
+    InternetConnectionChecker internetConnectionChecker,
+  ) async {
     // Simple check to see if we have Internet
     // ignore: avoid_print
     print('''The statement 'this machine is connected to the Internet' is: ''');
@@ -104,18 +110,18 @@ class _IntroScreenState extends State<IntroScreen> {
     );
     // Prints either InternetConnectionStatus.connected
     // or InternetConnectionStatus.disconnected
-
     // actively listen for status updates
+
     final StreamSubscription<InternetConnectionStatus> listener =
-    InternetConnectionChecker().onStatusChange.listen(
-          (InternetConnectionStatus status) {
+        InternetConnectionChecker().onStatusChange.listen(
+      (InternetConnectionStatus status) {
         switch (status) {
           case InternetConnectionStatus.connected:
-          // ignore: avoid_print
+            // ignore: avoid_print
             print('Data connection is available.');
             break;
           case InternetConnectionStatus.disconnected:
-          // ignore: avoid_print
+            // ignore: avoid_print
             print('You are disconnected from the internet.');
             // Container(
             //   width: 200,
@@ -126,7 +132,8 @@ class _IntroScreenState extends State<IntroScreen> {
             //       style: TextStyle(color: Colors.black,fontSize: 20),),
             //   ),
             // );
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const BlankPage()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const BlankPage()));
             break;
         }
       },
@@ -141,7 +148,7 @@ class _IntroScreenState extends State<IntroScreen> {
     return Container(
       color: AppColors.kWhite,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: Column(
           children: [
             Expanded(
@@ -158,17 +165,19 @@ class _IntroScreenState extends State<IntroScreen> {
                 verticalScrollbarBehavior: scrollbarBehavior.SHOW_ALWAYS,
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             AppButtons().kElevatedButton(
                 title: AppStrings.kREGISTER,
                 context: context,
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Permission()),);
-
-                  print('register');}
-            )
+                    MaterialPageRoute(builder: (context) => Permission()),
+                  );
+                  print('register');
+                })
           ],
         ),
       ),

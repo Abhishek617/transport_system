@@ -17,7 +17,7 @@ class _BookNowState extends State<BookNow> {
   File? image;
   String? language; //no radi// o button will be selected
 
-  int? selectedIndexes;
+  int? selectedIndex;
   final List<String> _wordName = [
     "7 - 10 tons",
     "10 - 20 tons",
@@ -26,12 +26,15 @@ class _BookNowState extends State<BookNow> {
     "30 - 55 tons",
     "35 - 40 tons",
     "40 - 45 tons",
+    "45 ++ tons"
   ];
 
   TextEditingController loadingPoint = TextEditingController();
   TextEditingController unload = TextEditingController();
   TextEditingController material = TextEditingController();
   Type _type = Type.Single;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,14 +145,79 @@ class _BookNowState extends State<BookNow> {
           _customeText(loadingPoint, 'Loading point'),
           _customeText(unload, "Unloading Point"),
           _customeText(material, "Material"),
-          const Spacer(),
+        //  const Spacer(),
+          Expanded(
+            child: GridView.builder(
+                scrollDirection: Axis.vertical,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 3,
+                  mainAxisSpacing: 2,
+                  childAspectRatio: (16 / 8),
+                ),
+                itemCount: _wordName.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          print("now selected ===>>> $index");
+                          selectedIndex = index;
+                          //showButton = true;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: selectedIndex == index
+                              ? Color(0xffDEB988).withOpacity(0.2)
+                              : Color(0xffF4F4F6).withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                              color: selectedIndex == index
+                                  ? Color(0xffDEB988)
+                                  : Colors.grey,
+                              width: 0.5),
+                          // image: const DecorationImage(
+                          //   image: AssetImage('assets/images/noData.png'),
+                          //   fit: BoxFit.cover,
+                          // ),
+                        ),
+                        child: Row(
+                            children: [
+                              Flexible(
+                                  child: Center(
+                                      child: Text(
+                                        _wordName[index].toUpperCase(),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: selectedIndex == index
+                                              ? Color(0xffDEB988)
+                                              : Colors.black,
+                                          fontWeight: selectedIndex == index
+                                              ? FontWeight.bold
+                                              : FontWeight.normal,
+                                          fontFamily: "Poppins",
+                                        ),
+                                      )
+                                  )
+                              )
+                            ]
+                        ),
+                      )
+                  );
+                }
+            ),
+          ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
             child: AppButtons().kElevatedButton(
                 title: 'SUBMIT', context: context, onPressed: () {}),
           ),
 
-          //   GridView.builder(
+
+
+            //   GridView.builder(
           //     scrollDirection: Axis.vertical,
           //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           //       crossAxisCount: 2,
@@ -217,7 +285,9 @@ class _BookNowState extends State<BookNow> {
           //   ),
           //   ]
           // )
-        ]));
+        ]
+        )
+    );
   }
 
   Widget _texts(String name) {

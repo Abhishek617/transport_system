@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../main.dart';
 import '../models/new.dart';
 import '../network/constants.dart';
 import '../network/network.dart';
@@ -80,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen> {
       });
       customToast(e.toString());
     });
-
   }
 
   // AudioPlayer audioPlayer = AudioPlayer();
