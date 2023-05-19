@@ -14,7 +14,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.white,
@@ -26,7 +26,7 @@ class _ProfileState extends State<Profile> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Stack(
                   children: [
@@ -41,25 +41,25 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Abhishek Singh",
                       style: TextStyle(
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Text("Ahmedabad Gujarat"),
-                    SizedBox(
-                      height: 15,
+                    const Text("Ahmedabad Gujarat"),
+                    const SizedBox(
+                      height: 10,
                     ),
                     Container(
                       height: 35,
@@ -70,7 +70,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Icon(
                             Icons.share_rounded,
                             size: 18,
@@ -85,38 +85,38 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "  YOUR RATING",
               style: TextStyle(color: AppColors.kGrey, fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               children: [
                 Container(
                   height: 25,
-                  child: Center(
-                      child: Text(
-                    ' New ',
-                    style: TextStyle(color: Colors.yellow[800], fontSize: 16),
-                  )),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
-                      color: Colors.yellow,
+                      color: AppColors.kYellow,
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(5),
                   ),
+                  child: const Center(
+                      child: Text(
+                    ' New ',
+                    style: TextStyle(color: AppColors.kYellow, fontSize: 16),
+                  )),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "Not Enough Rating",
                   style: TextStyle(fontSize: 16),
                 ),

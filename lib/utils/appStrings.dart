@@ -58,4 +58,9 @@ class AppStrings {
   static const knoPast = 'You have no past loads at the moment';
   static const kPostLoads = 'Recharge to post loads';
   static const kBuyPack = 'BUY PACK';
+
+
+  //Preferences
+  static const kDriverPref = 'Driver';
+  static const kCustomerPref = 'Customer';
 }

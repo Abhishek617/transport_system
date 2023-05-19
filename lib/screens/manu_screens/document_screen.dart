@@ -13,15 +13,22 @@ class Document extends StatefulWidget {
 
 class _DocumentState extends State<Document> {
   File? _panImage;
-  String extractedPanText = '';
+  File? _aadharImage;
+  File? _licenseImage;
+  File? _rcImage;
+  String extractedText = '';
   String panNumber = '';
+  String aadharNumber = '';
+  String licenseNumber = '';
+  TextEditingController _rcController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.white,
@@ -33,28 +40,79 @@ class _DocumentState extends State<Document> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _textName("Address", "VERIFIED"),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 130,
-                width: 250,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[300]),
-              ),
-              SizedBox(
+              AppButtons().kTextFormField(
+                  controller: _addressController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done),
+              const SizedBox(
                 height: 10,
               ),
-              Divider(
+              const Divider(
                 thickness: 3,
                 color: Colors.grey,
               ),
-              SizedBox(
+              _textName("Aadhar Card", "VERIFIED"),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () => _pickImage('Aadhar Card'),
+                child: Container(
+                  height: 130,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[300]),
+                  child: (_aadharImage != null)
+                      ? Image(
+                          image: FileImage(_aadharImage!),
+                          // fit: BoxFit.fill,
+                        )
+                      : const Center(child: Text('No image selected')),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 3,
+                color: Colors.grey,
+              ),
+              _textName("License", "VERIFIED"),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () => _pickImage('License'),
+                child: Container(
+                  height: 130,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[300]),
+                  child: (_licenseImage != null)
+                      ? Image(
+                          image: FileImage(_licenseImage!),
+                          // fit: BoxFit.fill,
+                        )
+                      : const Center(child: Text('No image selected')),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 3,
+                color: Colors.grey,
+              ),
+              const SizedBox(
                 height: 10,
               ),
               _textName("Your Selfie", "VERIFIED"),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -64,69 +122,91 @@ class _DocumentState extends State<Document> {
                     borderRadius: BorderRadius.circular(100),
                     color: Colors.grey[300]),
               ),
-              SizedBox(height: 20,),
-              Divider(
+              const SizedBox(
+                height: 20,
+              ),
+              const Divider(
                 thickness: 3,
                 color: Colors.grey,
               ),
-              SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               _textName("Pan Card Number", "VERIFIED"),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(panNumber,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              _textName("Pan Card Number", "VERIFIED"),
-              SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      GestureDetector(
-                        onTap: _pickImage,
-                        child: Container(
-                          height: 90,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[300],
-                              borderRadius: BorderRadius.circular(10)),
-                          child: (_panImage != null)
-                              ? Image(
-                            image: FileImage(_panImage!),
-                            // fit: BoxFit.fill,
-                          )
-                              : Text('No image selected'),
-                        ),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Fornt Side", style: TextStyle(fontSize: 17))
-                    ],
-                  ),
-                  SizedBox(width: 10,),
-                  Column(
-                    children: [
-                      Container(
-                        height: 90,
-                        width: 150,
-                        decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(10)),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Back Side", style: TextStyle(fontSize: 17),),
-
-                    ],
-                  )
-                ],
+              _textName("Pan Card", "VERIFIED"),
+              const SizedBox(
+                height: 20,
               ),
-              Divider(thickness: 3, color: Colors.grey,),
-              SizedBox(height: 32,),
+              GestureDetector(
+                onTap: () => _pickImage('PAN'),
+                child: Container(
+                  height: 130,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: (_panImage != null)
+                      ? Image(
+                          image: FileImage(_panImage!),
+                          // fit: BoxFit.fill,
+                        )
+                      : const Center(child: Text('No image selected')),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 3,
+                color: Colors.grey,
+              ),
+              _textName("RC Book", "VERIFIED"),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () => _pickImage('RC'),
+                child: Container(
+                  height: 130,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: (_rcImage != null)
+                      ? Image(
+                          image: FileImage(_rcImage!),
+                          // fit: BoxFit.fill,
+                        )
+                      : const Center(child: Text('No image selected')),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              AppButtons().kTextFormField(
+                  controller: _rcController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 3,
+                color: Colors.grey,
+              ),
+              const SizedBox(
+                height: 32,
+              ),
               AppButtons().kElevatedButton(
                   title: "SUBMIT", context: context, onPressed: () {})
             ],
@@ -141,33 +221,75 @@ class _DocumentState extends State<Document> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(name!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
             )),
-        Text(verifiled!, style: TextStyle(fontSize: 18, color: Colors.green))
+        Text(verifiled!,
+            style: const TextStyle(fontSize: 18, color: Colors.green))
       ],
     );
   }
 
-  Future<void> _pickImage() async {
+  Future<void> _pickImage(String type) async {
     final picker = ImagePicker();
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
-        _panImage = File(pickedFile.path);
+        if (type == 'PAN') {
+          _panImage = File(pickedFile.path);
+          print('_panImage: ${_panImage!.path}');
+        } else if (type == 'Aadhar Card') {
+          _aadharImage = File(pickedFile.path);
+          print('_aadharImage: ${_aadharImage!.path}');
+        } else if (type == 'RC') {
+          _rcImage = File(pickedFile.path);
+          print('_rcImage: ${_rcImage!.path}');
+        } else {
+          _licenseImage = File(pickedFile.path);
+          print('_licenseImage: ${_licenseImage!.path}');
+        }
       });
     }
-    print('_imageFile: ${_panImage!.path}');
-    if (_panImage!.path.isNotEmpty) {
-      recognizedText(_panImage!.path);
-    }
-    else { // Get.snackbar("Something went wrong", "Image is not selected",
-      //     backgroundColor: kSnackErrorBackground,
-      //     colorText: kPrimaryLightColor);}
+    if (type == 'PAN') {
+      if (_panImage!.path.isNotEmpty) {
+        print('_panImage: $_panImage');
+        recognizedText(_panImage!.path, type);
+      } else {
+        // Get.snackbar("Something went wrong", "Image is not selected",
+        //     backgroundColor: kSnackErrorBackground,
+        //     colorText: kPrimaryLightColor);}
+      }
+    } else if (type == 'Aadhar Card') {
+      if (_aadharImage!.path.isNotEmpty) {
+        print('_aadharImage: $_aadharImage');
+        recognizedText(_aadharImage!.path, type);
+      } else {
+        // Get.snackbar("Something went wrong", "Image is not selected",
+        //     backgroundColor: kSnackErrorBackground,
+        //     colorText: kPrimaryLightColor);}
+      }
+    } else if (type == 'RC') {
+      if (_rcImage!.path.isNotEmpty) {
+        print('_rcImage: $_rcImage');
+        recognizedText(_rcImage!.path, type);
+      } else {
+        // Get.snackbar("Something went wrong", "Image is not selected",
+        //     backgroundColor: kSnackErrorBackground,
+        //     colorText: kPrimaryLightColor);}
+      }
+    } else {
+      if (_licenseImage!.path.isNotEmpty) {
+        print('_licenseImage: $_licenseImage');
+        recognizedText(_licenseImage!.path, type);
+      } else {
+        // Get.snackbar("Something went wrong", "Image is not selected",
+        //     backgroundColor: kSnackErrorBackground,
+        //     colorText: kPrimaryLightColor);}
+      }
     }
   }
 
-  Future<void> recognizedText(String pickedImage) async {
+  Future<void> recognizedText(String pickedImage, String type) async {
     print('recognizedText');
     if (pickedImage == null) {
       print('recognizedText if');
@@ -175,7 +297,7 @@ class _DocumentState extends State<Document> {
       //     backgroundColor: Colors.redAccent, colorText: kPrimaryLightColor);
     } else {
       print('recognizedText else');
-      extractedPanText = '';
+      extractedText = '';
       var textRecognizer = GoogleMlKit.vision.textRecognizer();
       final visionImage = InputImage.fromFilePath(pickedImage);
       try {
@@ -183,9 +305,9 @@ class _DocumentState extends State<Document> {
         for (TextBlock textBlock in visionText.blocks) {
           for (TextLine textLine in textBlock.lines) {
             for (TextElement textElement in textLine.elements) {
-              extractedPanText = extractedPanText + textElement.text + ' ';
+              extractedText = '$extractedText${textElement.text} ';
             }
-            extractedPanText = extractedPanText + " \n";
+            extractedText = "$extractedText \n";
           }
         }
       } catch (e) {
@@ -194,20 +316,32 @@ class _DocumentState extends State<Document> {
         //     backgroundColor: Colors.redAccent, colorText: kPrimaryLightColor);
       }
       // print('data: $extractedText');
-      String para = extractedPanText;
+      String para = extractedText;
       print('para: \n$para');
       String paragraph =
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium 1234 5678 9012 3456';
       setState(() {
-        panNumber = extract16DigitNumber(para);
+        if (type == 'PAN') {
+          panNumber = extract16DigitNumber(para, type);
+          print('panNumber: $panNumber');
+        } else if (type == 'Aadhar Card') {
+          aadharNumber = extract16DigitNumber(para, type);
+          print('aadharNumber: $aadharNumber');
+        } else if (type == 'RC') {
+          print('rc book');
+          // aadharNumber = extract16DigitNumber(para, type);
+          // print('aadharNumber: $aadharNumber');
+        } else {
+          licenseNumber = extract16DigitNumber(para, type);
+          print('licenseNumber: $licenseNumber');
+        }
       });
-      print('number niti: $panNumber');
       // textController?.text=extractedText.value;
       // update();
     }
   }
 
-  String extract16DigitNumber(String text) {
+  String extract16DigitNumber(String text, String type) {
     // Regular Expression for License Number
     RegExp regExp = RegExp(r'([A-Z]{2}|[A-Z]{3})-\d{2}-\d{11}');
     RegExp regExp11 = RegExp(r'([A-Z]{2}|[A-Z]{3})\d{2} \d{11}');
@@ -216,9 +350,9 @@ class _DocumentState extends State<Document> {
     // RegExp(r'[A-Z]{2}\s*[0-9]{2}\s*[A-Z]{2}\s*[0-9]{4}');
     // RegExp(r'([A-Z]{2}|[A-Z]{3})\d{2}[A-Z]{2}\d{4}'); // Regular Expression for RC Book Number
     RegExp regExp44 =
-    RegExp('[A-Z]{5}[0-9]{4}[A-Z]{1}'); // Regular Expression for PAN Card
+        RegExp('[A-Z]{5}[0-9]{4}[A-Z]{1}'); // Regular Expression for PAN Card
     RegExp regExp55 =
-    RegExp(r'\d{4} \d{4} \d{4}'); // Regular Expression for Aadhar Card
+        RegExp(r'\d{4} \d{4} \d{4}'); // Regular Expression for Aadhar Card
 //     text.contains(regExp);
     print('text: ${text.contains(regExp)}');
     print('text11: ${text.contains(regExp11)}');
@@ -227,24 +361,26 @@ class _DocumentState extends State<Document> {
     print('text44: ${text.contains(regExp44)}');
     print('text55: ${text.contains(regExp55)}');
     Match? match;
-    if (text.contains(regExp11)) {
-      print('if match');
-      match = regExp11.firstMatch(text);
-    } else if (text.contains(regExp22)) {
-      print('if 22 match');
-      match = regExp22.firstMatch(text);
-    } else if (text.contains(regExp33)) {
+    if (type == 'License') {
+      if (text.contains(regExp11)) {
+        print('if match');
+        match = regExp11.firstMatch(text);
+      } else if (text.contains(regExp)) {
+        print('else match');
+        match = regExp.firstMatch(text);
+      } else if (text.contains(regExp22)) {
+        print('if 22 match');
+        match = regExp22.firstMatch(text);
+      }
+    } else if (type == 'RC') {
       print('if 33 match');
       match = regExp33.firstMatch(text);
-    } else if (text.contains(regExp44)) {
+    } else if (type == 'PAN') {
       print('if 44 match');
       match = regExp44.firstMatch(text);
-    } else if (text.contains(regExp55)) {
+    } else {
       print('if 55 match');
       match = regExp55.firstMatch(text);
-    } else {
-      print('else match');
-      match = regExp.firstMatch(text);
     }
     print('regExp: $match');
     print('match?.group(0): ${match?.group(0)}');
@@ -253,4 +389,3 @@ class _DocumentState extends State<Document> {
     return match?.group(0) ?? '';
   }
 }
-

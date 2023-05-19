@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:royal_cargo/screens/registration_screen.dart';
+import 'package:royal_cargo/utils/appStrings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DriverCustomer extends StatefulWidget {
   const DriverCustomer({Key? key}) : super(key: key);
@@ -9,6 +11,17 @@ class DriverCustomer extends StatefulWidget {
 }
 
 class _DriverCustomerState extends State<DriverCustomer> {
+  // late SharedPreferences pref;
+  @override
+  void initState() {
+    super.initState();
+    // initPrefence();
+  }
+
+  void initPrefence() async{
+    print('initPreference');
+    final pref = await SharedPreferences.getInstance();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +32,10 @@ class _DriverCustomerState extends State<DriverCustomer> {
         children: [
           GestureDetector(
             onTap: (){
+              // setState(() async {
+              //    pref.setString(AppStrings.kDriverPref,AppStrings.kDriverPref);
+              //   print('Driver Pref: ${pref.get(AppStrings.kDriverPref)}');
+              // });
               Navigator.push(context, MaterialPageRoute(builder: (context) => const Registration()));
             },
             child: Container(
